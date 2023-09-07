@@ -10,7 +10,7 @@ public class movement : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    public float forceAmount = 100;
+    public float forceAmount = 10;
 
     private void Awake()
     {
