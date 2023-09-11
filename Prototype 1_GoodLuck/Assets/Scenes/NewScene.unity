@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 124927169}
   - component: {fileID: 124927168}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 616038772}
   - component: {fileID: 616038771}
   m_Layer: 5
-  m_Name: Button (Legacy) (3)
+  m_Name: Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 755409674}
   - component: {fileID: 755409673}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -871,7 +871,7 @@ GameObject:
   - component: {fileID: 971199812}
   - component: {fileID: 971199811}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1171,11 +1171,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundsList: []
-  clickableButtons: []
-  buttons: {fileID: 0}
+  clickableButtons:
+  - {fileID: 755409673}
+  - {fileID: 124927168}
+  - {fileID: 971199811}
+  - {fileID: 616038771}
+  buttons: {fileID: 1230085217}
   loseSound: {fileID: 0}
   AudioSource: {fileID: 0}
-  startButton: {fileID: 0}
+  startButton: {fileID: 433479942}
 --- !u!4 &2031311244
 Transform:
   m_ObjectHideFlags: 0
