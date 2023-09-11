@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public AudioSource AudioSource;
     public GameObject startButton;
 
+    public RectTransform buttonsParent;
+
     public void Awake()
     {
         //list of colors
@@ -52,10 +54,58 @@ public class GameManager : MonoBehaviour
             new Color32(57, 111, 255, 255),
             new Color32(0, 70, 255, 255)
         });
+        
+        buttonColors.Add(new List<Color32>
+        {
+            new Color32(245, 40, 145, 150),
+            new Color32(245, 40, 145, 255)
+        });
+        
+        buttonColors.Add(new List<Color32>
+        {
+            new Color32(255, 255, 73, 150),
+            new Color32(255, 255, 73, 255)
+        });
+        
+        buttonColors.Add(new List<Color32>
+        {
+            new Color32(39, 47, 110, 150),
+            new Color32(59, 70, 155, 255)
+        });
+        
+        buttonColors.Add(new List<Color32>
+        {
+            new Color32(136, 70, 29, 150),
+            new Color32(135, 52, 0, 255)
+        });
+        
+        buttonColors.Add(new List<Color32>
+        {
+            new Color32(121, 245, 255, 150),
+            new Color32(0, 236, 255, 255)
+        });
+        
+        buttonColors.Add(new List<Color32>
+        {
+            new Color32(28, 133, 105, 150),
+            new Color32(0, 136, 99, 255)
+        });
+        
+        buttonColors.Add(new List<Color32>
+        {
+            new Color32(201, 201, 201, 150),
+            new Color32(156, 156, 156, 255)
+        });
+        
+        buttonColors.Add(new List<Color32>
+        {
+            new Color32(80, 27, 29, 150),
+            new Color32(75, 0, 4, 255)
+        });
 
         //get component sprite render color and set the color
         //set button color to [first list][and first value]
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 12; i++)
         {
             clickableButtons[i].GetComponent<Image>().color 
                 = buttonColors[i][0];
@@ -115,6 +165,7 @@ public class GameManager : MonoBehaviour
     //delay between the start button and next round
     public IEnumerator StartNextRound()
     {
+        ShuffleButtonPos();
         //have to clear player sequence list
         playerSequenceList.Clear();
         buttons.interactable = false;
@@ -126,5 +177,18 @@ public class GameManager : MonoBehaviour
         }
         buttons.interactable = true;
         yield return null;
+    }
+
+    public void ShuffleButtonPos()
+    {
+        int buttonCount = clickableButtons.Count;
+        for (int i = 0; i < buttonCount; i++)
+        {
+            int randomIndex = Random.Range(i, buttonCount);
+            //swap positions of button at i and random index
+            Vector2 tempPos = clickableButtons[i].transform.localPosition;
+            clickableButtons[i].transform.localPosition = clickableButtons[randomIndex].transform.localPosition;
+            clickableButtons[randomIndex].transform.localPosition = tempPos;
+        }
     }
 }
