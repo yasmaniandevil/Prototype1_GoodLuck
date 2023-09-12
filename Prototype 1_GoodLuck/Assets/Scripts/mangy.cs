@@ -182,7 +182,7 @@ public class mangy : MonoBehaviour
         //turn off buttons
         buttons.interactable = false;
         //wait .5f before adding a new random player task list
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         ShuffleButtonPos();
 
