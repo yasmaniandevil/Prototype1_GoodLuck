@@ -14,12 +14,11 @@ public class RestartGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
-
-    public void LoadScene(string SceneName)
-    {
-        SceneManager.LoadScene(SceneName);
-    }
+    
 }
 
