@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
 
         //get component sprite render color and set the color
         //set button color to [first list][and first value]
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 11; i++)
         {
             clickableButtons[i].GetComponent<Image>().color 
                 = buttonColors[i][0];
@@ -183,23 +183,23 @@ public class GameManager : MonoBehaviour
         buttons.interactable = false;
         //wait .5f before adding a new random player task list
         yield return new WaitForSeconds(2f);
-        playerTaskList.Add(Random.Range(0, 3)); //add a random task
-        
 
+        ShuffleButtonPos();
+
+        yield return new WaitForSeconds(1f);
+        
+        int taskCount = Random.Range(1, 5);
+        playerTaskList.Clear();
+        for (int i = 0; i < taskCount; i++)
+        {
+            playerTaskList.Add(Random.Range(0, 11)); //add a random task
+        }
+        
         foreach (int index in playerTaskList)
         {
             yield return StartCoroutine(HighLightButton(index));
 
-            float startTime = Time.time;
-            
-            while (Time.time < startTime + 1f)
-            {
-                yield return null;
-            }
-            
-            ShuffleButtonPos();
-            
-            
+
         }
         buttons.interactable = true;
         yield return null;
