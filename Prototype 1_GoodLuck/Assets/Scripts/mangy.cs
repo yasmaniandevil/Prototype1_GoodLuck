@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class GameManager : MonoBehaviour
+public class mangy : MonoBehaviour
 {
     // Start is called before the first frame update
     private List<int> playerTaskList = new List<int>();
@@ -192,6 +192,7 @@ public class GameManager : MonoBehaviour
         playerTaskList.Clear();
         for (int i = 0; i < taskCount; i++)
         {
+            playerTaskList.Add(Random.Range(0, 11));
             playerTaskList.Add(Random.Range(0, 11));
             //playerTaskList.Add(Random.Range(0,11));//add a random task
         }
